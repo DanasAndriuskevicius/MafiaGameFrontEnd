@@ -6,10 +6,10 @@ import AppNavbar from './AppNavbar';
 function PlayerEdit(props) {
     const emptyItem = {
         name: '',
-    
     };
 
     const [item, setItem] = useState(emptyItem);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         async function fetchPlayer() {
@@ -17,8 +17,6 @@ function PlayerEdit(props) {
                 const response = await fetch(`/players/${props.match.params.id}`);
                 const player = await response.json();
                 setItem(player);
-
-
             }
         }
         fetchPlayer();
@@ -35,6 +33,13 @@ function PlayerEdit(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        
+        // Patikriname, ar vartotojo įvesties laukas ne tuščias
+        if (!item.name.trim()) {
+            setError("Player name cannot be empty");
+            return;
+        }
+        
         const method = item.id ? 'PUT' : 'POST';
         const url = item.id ? `/players/${item.id}` : '/players/';
 
@@ -57,6 +62,7 @@ function PlayerEdit(props) {
             <AppNavbar />
             <Container>
                 {title}
+                {error && <p className="text-danger">{error}</p>}
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <Label for="name">Name</Label>

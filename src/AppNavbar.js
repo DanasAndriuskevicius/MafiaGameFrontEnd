@@ -7,7 +7,7 @@ const AppNavbar = () => {
 
     return (
         <Navbar color="dark" dark expand="md">
-            <NavbarBrand tag={Link} to="/" onClick={() => setIsOpen(!isOpen)}>Home</NavbarBrand>
+            <NavbarBrand tag={Link} to="/" onClick={() => setIsOpen(!isOpen)}>MAFIA GAME</NavbarBrand>
         </Navbar>
     );
 }

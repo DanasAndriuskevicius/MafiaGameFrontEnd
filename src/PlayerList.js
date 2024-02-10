@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
+import PlayerCard from './PlayerCard';
+import './PlayerList.css';
+
 
 function PlayerList() {
     const [players, setPlayers] = useState([]);
@@ -52,7 +55,7 @@ function PlayerList() {
     ));
 
     return (
-        <div>
+        <div className="player-list-container">
             <AppNavbar />
             <Container fluid>
                 <div className="float-right">
@@ -71,9 +74,15 @@ function PlayerList() {
                         {playerList}
                     </tbody>
                 </Table>
+                <div className="player-cards">
+                    {players.map(player => (
+                        <PlayerCard key={player.id} player={player} />
+                    ))}
+                </div>
             </Container>
         </div>
     );
+    
 }
 
 export default PlayerList;
