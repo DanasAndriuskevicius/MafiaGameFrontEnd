@@ -61,7 +61,7 @@ function PlayerList() {
                 <div className="float-right">
                     <Button color="success" tag={Link} to="/players/new">Add Player</Button>
                 </div>
-                <h3>Players</h3>
+                <h3>Game Players</h3>
                 <Table className="mt-4">
                     <thead>
                         <tr>
