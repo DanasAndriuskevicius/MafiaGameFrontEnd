@@ -5,7 +5,6 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
 
-  // Įkeliant komponentą, gauti žinutes iš localStorage
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatMessages');
     if (storedMessages) {
@@ -13,19 +12,16 @@ function Chat() {
     }
   }, []);
 
-  // Išvalyti žinutes iš localStorage paleidus aplikaciją
   useEffect(() => {
     localStorage.removeItem('chatMessages');
   }, []);
 
-  // Siųsti žinutę
   const sendMessage = () => {
     if (currentMessage) {
       const updatedMessages = [...messages, currentMessage];
       setMessages(updatedMessages);
       setCurrentMessage('');
 
-      // Įrašyti naujas žinutes į localStorage
       localStorage.setItem('chatMessages', JSON.stringify(updatedMessages));
     }
   };

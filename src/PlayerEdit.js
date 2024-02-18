@@ -34,7 +34,6 @@ function PlayerEdit(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         
-        // Patikriname, ar vartotojo įvesties laukas ne tuščias
         if (!item.name.trim()) {
             setError("Player name cannot be empty");
             return;

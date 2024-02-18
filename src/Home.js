@@ -3,7 +3,7 @@ import './App.css';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 import { Button, Container, Table } from 'reactstrap';
-import Chat from './Chat'; // Importuojame Chat komponentą
+import Chat from './Chat'; 
 
 
 
